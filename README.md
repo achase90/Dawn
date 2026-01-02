@@ -2,6 +2,8 @@
 
 A highly functional [Ghost](https://github.com/TryGhost/Ghost) theme that adapts to the reader's preferences. Let them read, search, subscribe, navigate, and more with ease.
 
+<!-- Customized for OutdoorStats -->
+
 **Demo: https://dawn.ghost.io**
 
 # Instructions

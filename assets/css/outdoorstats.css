@@ -1,0 +1,256 @@
+/* ==========================================================================
+   OutdoorStats Custom Styles
+   Outdoor/earthy + data-modern aesthetic for outdoorstats.com
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Color Palette
+   -------------------------------------------------------------------------- */
+
+:root {
+    --os-forest: #1B4332;
+    --os-sage: #52796F;
+    --os-sand: #DDA15E;
+    --os-sky: #457B9D;
+    --os-cream: #FEFAE0;
+    --os-cream-soft: #fdf8e8;
+    --os-charcoal: #264653;
+
+    --brand-color: var(--os-forest);
+    --primary-text-color: var(--os-charcoal);
+    --darker-gray-color: #1a2e28;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.gh-head {
+    border-bottom: 1px solid rgba(27, 67, 50, 0.08);
+}
+
+.gh-head-logo {
+    color: var(--os-forest);
+}
+
+.gh-head-menu a {
+    transition: color 0.15s ease;
+}
+
+.gh-head-menu a:hover {
+    color: var(--os-sage);
+}
+
+/* --------------------------------------------------------------------------
+   Homepage Cover
+   -------------------------------------------------------------------------- */
+
+.cover {
+    margin-top: 56px;
+    padding-bottom: 16px;
+}
+
+.cover-content {
+    max-width: 600px;
+}
+
+.cover-icon-image {
+    width: 100px;
+    border-radius: 12px;
+}
+
+.cover-description {
+    font-size: 1.85rem;
+    line-height: 1.5;
+    color: var(--os-sage);
+    letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   Featured Posts Section
+   -------------------------------------------------------------------------- */
+
+.featured-title {
+    color: var(--os-sage);
+    border-bottom-color: rgba(82, 121, 111, 0.2);
+}
+
+.featured-wrapper .post-title a:hover {
+    color: var(--os-forest);
+}
+
+/* --------------------------------------------------------------------------
+   Post Feed
+   -------------------------------------------------------------------------- */
+
+.feed + .feed {
+    border-top-color: rgba(27, 67, 50, 0.08);
+}
+
+.feed-calendar {
+    color: var(--os-forest);
+}
+
+.feed:hover .feed-title {
+    color: var(--os-forest);
+}
+
+.feed-title {
+    transition: color 0.15s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Single Post / Page
+   -------------------------------------------------------------------------- */
+
+.single-meta-tag .post-tag {
+    color: var(--os-forest);
+}
+
+.single-cta {
+    border-top-color: var(--os-forest);
+}
+
+/* --------------------------------------------------------------------------
+   Tags
+   -------------------------------------------------------------------------- */
+
+.tag .tag-name {
+    color: var(--os-forest);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+
+.button,
+.gh-btn,
+.gh-primary-btn {
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gh-primary-btn:hover {
+    box-shadow: 0 2px 8px rgba(27, 67, 50, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Data Embeds (maps, charts, iframes)
+   -------------------------------------------------------------------------- */
+
+.gh-content .kg-card.kg-html-card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.gh-content .kg-html-card iframe {
+    width: 100%;
+    border: 1px solid rgba(27, 67, 50, 0.1);
+    border-radius: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.gh-foot {
+    border-top: 1px solid rgba(27, 67, 50, 0.08);
+}
+
+.gh-copyright {
+    color: var(--os-sage);
+}
+
+.gh-powered-by a {
+    color: var(--os-sage);
+}
+
+.gh-foot-menu a {
+    transition: color 0.15s ease;
+}
+
+.gh-foot-menu a:hover {
+    color: var(--os-forest);
+}
+
+/* --------------------------------------------------------------------------
+   Misc
+   -------------------------------------------------------------------------- */
+
+::selection {
+    background-color: rgba(27, 67, 50, 0.15);
+}
+
+a {
+    color: var(--os-charcoal);
+}
+
+.gh-content a:not(.kg-btn):not(.gh-btn) {
+    color: var(--os-forest);
+    text-decoration-color: rgba(27, 67, 50, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s ease;
+}
+
+.gh-content a:not(.kg-btn):not(.gh-btn):hover {
+    text-decoration-color: var(--os-forest);
+}
+
+/* --------------------------------------------------------------------------
+   Dark Mode Overrides
+   -------------------------------------------------------------------------- */
+
+.theme-dark:root {
+    --os-forest: #40916C;
+    --os-sage: #74C69D;
+    --os-sand: #E9C46A;
+    --os-sky: #6FB3D2;
+    --os-cream-soft: #1e2329;
+    --os-charcoal: #dce4e8;
+    --brand-color: var(--os-forest);
+}
+
+.theme-dark .cover-description {
+    color: var(--os-sage);
+}
+
+.theme-dark .gh-foot {
+    background-color: #1e2329;
+}
+
+.theme-dark .gh-content a:not(.kg-btn):not(.gh-btn) {
+    color: var(--os-forest);
+    text-decoration-color: rgba(64, 145, 108, 0.3);
+}
+
+.theme-dark .gh-content a:not(.kg-btn):not(.gh-btn):hover {
+    text-decoration-color: var(--os-forest);
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not(.theme-light):root {
+        --os-forest: #40916C;
+        --os-sage: #74C69D;
+        --os-sand: #E9C46A;
+        --os-sky: #6FB3D2;
+        --os-cream-soft: #1e2329;
+        --os-charcoal: #dce4e8;
+        --brand-color: var(--os-forest);
+    }
+
+    html:not(.theme-light) .cover-description {
+        color: var(--os-sage);
+    }
+
+    html:not(.theme-light) .gh-foot {
+        background-color: #1e2329;
+    }
+
+    html:not(.theme-light) .gh-content a:not(.kg-btn):not(.gh-btn) {
+        color: var(--os-forest);
+        text-decoration-color: rgba(64, 145, 108, 0.3);
+    }
+
+    html:not(.theme-light) .gh-content a:not(.kg-btn):not(.gh-btn):hover {
+        text-decoration-color: var(--os-forest);
+    }
+}

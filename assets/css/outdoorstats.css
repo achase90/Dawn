@@ -419,9 +419,24 @@ a {
 .gh-content .os-post .bottom-line {
     background: var(--card-bg);
     border-left: 4px solid var(--accent);
-    padding: 1.5rem;
+    padding: 1.75rem 2rem;
     border-radius: 0 8px 8px 0;
     margin: 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.gh-content .os-post .bottom-line p {
+    margin: 0.75rem 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.gh-content .os-post .bottom-line ol,
+.gh-content .os-post .bottom-line ul {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding-left: 1.25rem;
 }
 
 .gh-content .os-post .bottom-line li {

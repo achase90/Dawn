@@ -234,11 +234,15 @@ a {
 }
 
 .gh-content .os-post h2 {
+    font-size: 1.7em;
     color: var(--accent);
+    margin-top: 3rem;
 }
 
 .gh-content .os-post h3 {
+    font-size: 1.15em;
     color: var(--accent);
+    font-weight: 700;
 }
 
 .gh-content .os-post p {

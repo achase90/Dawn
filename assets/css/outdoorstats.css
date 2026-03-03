@@ -247,7 +247,7 @@ a {
 
 .gh-content .os-post table {
     display: table;
-    table-layout: auto;
+    table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
@@ -257,16 +257,17 @@ a {
     border: none;
     border-spacing: 0;
     background: #fff;
+    word-wrap: break-word;
 }
 
 .gh-content .os-post thead th {
     background: var(--accent);
     color: #fff;
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
     text-align: left;
     font-weight: 600;
     border: none;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
 }
 
 .gh-content .os-post thead th:not(:first-child) {
@@ -274,13 +275,13 @@ a {
 }
 
 .gh-content .os-post tbody td {
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
     border: none;
     border-bottom: 1px solid #eee;
     background: #fff;
     color: var(--text);
     transition: background 0.2s ease;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
 }
 
 .gh-content .os-post tbody td:not(:first-child) {

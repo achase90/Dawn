@@ -245,14 +245,15 @@ a {
 
 /* --- Tables --- */
 
-.gh-content .os-post table {
+.gh-content div.os-post table {
     display: table;
     table-layout: fixed;
     width: 100%;
+    white-space: normal;
+    overflow-x: hidden;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    font-size: 1.15rem;
-    overflow: hidden;
+    font-size: 1.05rem;
     border-radius: 8px;
     border: none;
     border-spacing: 0;

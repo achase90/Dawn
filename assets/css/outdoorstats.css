@@ -247,6 +247,7 @@ a {
 
 .gh-content .os-post table {
     display: table;
+    table-layout: auto;
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;

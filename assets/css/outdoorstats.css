@@ -221,14 +221,13 @@ a {
 
 .gh-content .os-post .meta {
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.75em;
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
 }
 
 .gh-content .os-post .lede {
-    font-size: 1.15rem;
     color: #333;
     margin-bottom: 2rem;
 }
@@ -259,7 +258,6 @@ a {
     overflow-x: hidden;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    font-size: 1.05rem;
     border-radius: 8px;
     border: none;
     border-spacing: 0;
@@ -274,7 +272,6 @@ a {
     text-align: left;
     font-weight: 600;
     border: none;
-    font-size: 1.05rem;
     overflow-wrap: break-word;
     word-break: break-word;
 }
@@ -290,7 +287,6 @@ a {
     background: #fff;
     color: var(--text);
     transition: background 0.2s ease;
-    font-size: 1.05rem;
     overflow-wrap: break-word;
     word-break: break-word;
 }
@@ -397,13 +393,16 @@ a {
 }
 
 .gh-content .os-post .stat-card .label {
-    font-size: 1rem;
     opacity: 0.9;
     color: #fff;
 }
 
 .gh-content .os-post .stat-card strong {
     color: #fff;
+}
+
+.gh-content .os-post .stat-card.stat-card-decline {
+    background: #B71C1C;
 }
 
 /* --- Lists --- */
@@ -447,7 +446,7 @@ a {
 /* --- Footnote --- */
 
 .gh-content .os-post .footnote {
-    font-size: 0.85rem;
+    font-size: 0.75em;
     color: var(--muted);
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -606,6 +605,53 @@ a {
     r: 7;
 }
 
+/* --- Horizontal bar charts --- */
+
+.gh-content .os-post .hbar-chart {
+    margin: 1rem 0;
+}
+
+.gh-content .os-post .hbar-row {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    gap: 8px;
+}
+
+.gh-content .os-post .hbar-label {
+    width: 120px;
+    text-align: right;
+    font-size: 13px;
+    color: #333;
+    flex-shrink: 0;
+}
+
+.gh-content .os-post .hbar-track {
+    flex: 1;
+    background: #eee;
+    border-radius: 4px;
+    height: 24px;
+    overflow: hidden;
+}
+
+.gh-content .os-post .hbar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.2s ease;
+}
+
+.gh-content .os-post .hbar-row:hover .hbar-fill {
+    filter: brightness(1.15);
+}
+
+.gh-content .os-post .hbar-val {
+    width: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    flex-shrink: 0;
+}
+
 /* --- Post responsive --- */
 
 @media (max-width: 600px) {
@@ -613,18 +659,12 @@ a {
         font-size: 2.2rem;
     }
 
-    .gh-content .os-post table {
-        font-size: 0.95rem;
-    }
-
     .gh-content .os-post thead th {
         padding: 0.65rem 0.5rem;
-        font-size: 0.9rem;
     }
 
     .gh-content .os-post tbody td {
         padding: 0.65rem 0.5rem;
-        font-size: 0.95rem;
     }
 }
 

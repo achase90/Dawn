@@ -647,6 +647,7 @@ body {
 
 .os-post-badge {
     margin-bottom: 16px;
+    justify-self: start;
 }
 
 .single-title {

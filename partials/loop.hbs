@@ -9,16 +9,19 @@
         </div>
     </div>
 
-    <h2 class="feed-title">{{title}}</h2>
+    <div class="os-feed-content">
+        <h2 class="feed-title">{{title}}</h2>
+        <div class="os-feed-excerpt">{{excerpt words="25"}}</div>
+    </div>
 
     <div class="feed-right">
-        {{> "icons/star"}}
+        {{#primary_tag}}
+            <span class="os-feed-type os-feed-type-{{slug}}">{{name}}</span>
+        {{/primary_tag}}
         <div class="feed-length">
             {{reading_time}}
         </div>
     </div>
-
-    {{> "icons/chevron-right"}}
 
     <a class="u-permalink" href="{{url}}" aria-label="{{title}}"></a>
 

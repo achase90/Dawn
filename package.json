@@ -75,6 +75,16 @@
             "white_logo_for_dark_mode": {
                 "type": "image"
             },
+            "hero_title": {
+                "type": "text",
+                "default": "California Hunting & Fishing Data",
+                "group": "homepage"
+            },
+            "hero_credibility": {
+                "type": "text",
+                "default": "26,000+ hunt-days analyzed · 40 wildlife areas · 22 seasons",
+                "group": "homepage"
+            },
             "show_featured_posts": {
                 "type": "boolean",
                 "default": true,

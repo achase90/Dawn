@@ -1,10 +1,15 @@
-{{#get "posts" limit="5" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
+{{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
 {{#if related}}
-    <section class="related-wrapper gh-canvas">
-        <h3 class="related-title">You might also like...</h3>
-        <div class="related-feed">
-            {{#foreach posts}}
-                {{> "loop"}}
+    <section class="os-related-section gh-canvas">
+        <div class="os-related-label">You might also like</div>
+        <div class="os-related-grid">
+            {{#foreach related}}
+                <a href="{{url}}" class="os-related-card">
+                    {{#primary_tag}}
+                        <span class="os-r-badge os-badge-{{slug}}">{{name}}</span>
+                    {{/primary_tag}}
+                    <h4>{{title}}</h4>
+                </a>
             {{/foreach}}
         </div>
     </section>

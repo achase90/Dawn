@@ -2,6 +2,12 @@
 
 <main class="site-main">
 
+    {{#is "home"}}
+    <div class="os-section-header">
+        <h3>All Posts</h3>
+    </div>
+    {{/is}}
+
     <div class="post-feed gh-feed gh-canvas">
         {{#foreach posts}}
             {{> "loop"}}
@@ -9,5 +15,9 @@
     </div>
 
     {{pagination}}
+
+    {{#is "home"}}
+        {{> "subscribe-cta"}}
+    {{/is}}
 
 </main>

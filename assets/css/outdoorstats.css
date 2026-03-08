@@ -1474,33 +1474,34 @@ body {
     margin-top: 16px;
 }
 
-.gh-content a.os-pref-btn-primary,
-.os-pref-btn-primary {
-    background: #1B4332;
-    color: #fff;
+.gh-content .os-pref-section a.os-pref-btn,
+.os-pref-btn {
     text-decoration: none;
 }
 
-.gh-content a.os-pref-btn-primary:hover,
+.gh-content .os-pref-section a.os-pref-btn-primary,
+.os-pref-btn-primary {
+    background: #1B4332;
+    color: #fff;
+}
+
+.gh-content .os-pref-section a.os-pref-btn-primary:hover,
 .os-pref-btn-primary:hover {
     background: #2D6A4F;
     color: #fff;
     box-shadow: 0 2px 8px rgba(27, 67, 50, 0.3);
-    text-decoration: none;
 }
 
-.gh-content a.os-pref-btn-outline,
+.gh-content .os-pref-section a.os-pref-btn-outline,
 .os-pref-btn-outline {
     background: transparent;
     color: #1B4332;
     border: 1.5px solid #1B4332;
-    text-decoration: none;
 }
 
-.gh-content a.os-pref-btn-outline:hover,
+.gh-content .os-pref-section a.os-pref-btn-outline:hover,
 .os-pref-btn-outline:hover {
     background: rgba(27, 67, 50, 0.06);
-    text-decoration: none;
 }
 
 .os-pref-note {

@@ -1,4 +1,4 @@
-{{#get "posts" filter="featured:true" limit="2" as |featured|}}
+{{#get "posts" filter="featured:true" limit="2" include="tags" as |featured|}}
 {{#if featured}}
     <div class="os-featured-wrapper">
         <div class="os-section-header">

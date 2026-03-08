@@ -80,6 +80,11 @@
                 "default": "California Hunting & Fishing Data",
                 "group": "homepage"
             },
+            "hero_tagline": {
+                "type": "text",
+                "default": "20+ years of waterfowl hunt results, draw odds, weather patterns, and trends from CDFW primary sources.",
+                "group": "homepage"
+            },
             "hero_credibility": {
                 "type": "text",
                 "default": "26,000+ hunt-days analyzed · 40 wildlife areas · 22 seasons",

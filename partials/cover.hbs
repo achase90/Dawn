@@ -6,7 +6,9 @@
             <h1 class="os-hero-title">{{@site.title}}</h1>
         {{/if}}
 
-        {{#if @site.description}}
+        {{#if @custom.hero_tagline}}
+            <p class="os-hero-tagline">{{@custom.hero_tagline}}</p>
+        {{else if @site.description}}
             <p class="os-hero-tagline">{{@site.description}}</p>
         {{/if}}
 

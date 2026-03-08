@@ -329,6 +329,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 10;
 }
 
 .os-card {
@@ -480,6 +483,10 @@ body {
 
 .feed:hover {
     background: var(--os-cream-soft);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
 }
 
 .feed:hover .feed-title {

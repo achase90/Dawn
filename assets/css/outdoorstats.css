@@ -1219,6 +1219,112 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   Cookie Consent Banner
+   NY 899-FF compliant: both buttons equally prominent, decline listed first.
+   -------------------------------------------------------------------------- */
+
+.os-cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: var(--os-charcoal);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.os-cookie-banner[aria-hidden="false"] {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.os-cookie-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px max(4vmin, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.os-cookie-text {
+    color: #f0f0f0;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.os-cookie-text a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.os-cookie-text a:hover {
+    opacity: 0.85;
+}
+
+.os-cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.os-cookie-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.os-cookie-btn-decline {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.os-cookie-btn-decline:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.os-cookie-btn-accept {
+    background: #1B4332;
+    color: #fff;
+}
+
+.os-cookie-btn-accept:hover {
+    background: #2D6A4F;
+    box-shadow: 0 2px 8px rgba(27, 67, 50, 0.3);
+}
+
+@media (max-width: 600px) {
+    .os-cookie-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+    }
+
+    .os-cookie-actions {
+        width: 100%;
+    }
+
+    .os-cookie-btn {
+        flex: 1;
+    }
+}
+
+/* --------------------------------------------------------------------------
    Dark Mode Overrides
    -------------------------------------------------------------------------- */
 
@@ -1230,6 +1336,18 @@ body {
     --os-cream-soft: #1e2329;
     --os-charcoal: #dce4e8;
     --brand-color: var(--os-forest);
+}
+
+.theme-dark .os-cookie-banner {
+    background: #111;
+}
+
+.theme-dark .os-cookie-btn-accept {
+    background: #40916C;
+}
+
+.theme-dark .os-cookie-btn-accept:hover {
+    background: #52B788;
 }
 
 .theme-dark .cover-description {
@@ -1258,6 +1376,18 @@ body {
         --os-cream-soft: #1e2329;
         --os-charcoal: #dce4e8;
         --brand-color: var(--os-forest);
+    }
+
+    html:not(.theme-light) .os-cookie-banner {
+        background: #111;
+    }
+
+    html:not(.theme-light) .os-cookie-btn-accept {
+        background: #40916C;
+    }
+
+    html:not(.theme-light) .os-cookie-btn-accept:hover {
+        background: #52B788;
     }
 
     html:not(.theme-light) .cover-description {

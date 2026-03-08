@@ -10,6 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+    if (navigator.globalPrivacyControl) {
+      localStorage.setItem('os_cookie_consent', 'rejected');
+    }
+    </script>
+
     {{ghost_head}}
 </head>
 
@@ -113,6 +128,8 @@
     crossorigin="anonymous">
 </script>
 <script src='{{asset "built/main.min.js"}}'></script>
+
+{{> "cookie-consent"}}
 
 {{ghost_foot}}
 

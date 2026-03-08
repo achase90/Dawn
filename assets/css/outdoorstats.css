@@ -42,45 +42,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Homepage Cover
-   -------------------------------------------------------------------------- */
-
-.cover {
-    margin-top: 56px;
-    padding-bottom: 16px;
-}
-
-.cover-content {
-    max-width: 600px;
-}
-
-.cover-icon-image {
-    width: 100px;
-    border-radius: 12px;
-}
-
-.cover-description {
-    font-size: 1.85rem;
-    line-height: 1.5;
-    color: var(--os-sage);
-    letter-spacing: -0.01em;
-}
-
-/* --------------------------------------------------------------------------
-   Featured Posts Section
-   -------------------------------------------------------------------------- */
-
-.featured-title {
-    color: var(--os-sage);
-    border-bottom-color: rgba(82, 121, 111, 0.2);
-}
-
-.featured-wrapper .post-title a:hover {
-    color: var(--os-forest);
-}
-
-/* --------------------------------------------------------------------------
-   Post Feed
+   Post Feed (legacy overrides — pre-redesign)
    -------------------------------------------------------------------------- */
 
 .feed + .feed {

@@ -3,22 +3,15 @@
    Outdoor/earthy + data-modern aesthetic for outdoorstats.com
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   Color Palette
-   -------------------------------------------------------------------------- */
+/* Color tokens are in tokens.css (auto-generated from config/tokens.json). */
 
-:root {
-    --os-forest: #1B4332;
-    --os-sage: #52796F;
-    --os-sand: #DDA15E;
-    --os-sky: #457B9D;
-    --os-cream: #FEFAE0;
-    --os-cream-soft: #fdf8e8;
-    --os-charcoal: #264653;
+html {
+    overflow-x: clip;
+}
 
-    --brand-color: var(--os-forest);
-    --primary-text-color: var(--os-charcoal);
-    --darker-gray-color: #1a2e28;
+:focus-visible {
+    outline: 2px solid var(--os-focus);
+    outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -44,10 +37,6 @@
 /* --------------------------------------------------------------------------
    Post Feed (legacy overrides — pre-redesign)
    -------------------------------------------------------------------------- */
-
-.feed + .feed {
-    border-top-color: rgba(27, 67, 50, 0.08);
-}
 
 .feed-calendar {
     color: var(--os-forest);
@@ -99,11 +88,6 @@
    Data Embeds (maps, charts, iframes)
    -------------------------------------------------------------------------- */
 
-.gh-content .kg-card.kg-html-card {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
 .gh-content .kg-html-card iframe {
     width: 100%;
     border: 1px solid rgba(27, 67, 50, 0.1);
@@ -127,6 +111,7 @@
 }
 
 .gh-foot-menu a {
+    color: var(--os-sage);
     transition: color 0.15s ease;
 }
 
@@ -218,14 +203,14 @@ body {
 
 .gh-head-btn.gh-primary-btn {
     background: var(--os-sand) !important;
-    color: #fff !important;
+    color: var(--os-forest) !important;
     border: none !important;
     border-radius: 6px;
     transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .gh-head-btn.gh-primary-btn:hover {
-    background: #c8923a !important;
+    background: var(--os-sand-hover) !important;
     box-shadow: 0 2px 8px rgba(221, 161, 94, 0.3);
 }
 
@@ -266,7 +251,7 @@ body {
 
 .os-hero-credibility {
     font-size: 14px;
-    color: var(--os-sand);
+    color: var(--os-sage);
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -281,6 +266,7 @@ body {
     padding: 44px max(4vmin, 20px) 16px;
 }
 
+.os-section-header h2,
 .os-section-header h3 {
     font-size: 12px;
     text-transform: uppercase;
@@ -365,7 +351,7 @@ body {
 
 .os-card-meta {
     font-size: 11px;
-    color: #aaa;
+    color: var(--os-muted-text);
     margin-top: 10px;
 }
 
@@ -433,13 +419,13 @@ body {
 
 .os-badge-guide,
 .os-feed-type-guide {
-    background: rgba(69, 123, 157, 0.1);
+    background: rgba(59, 109, 140, 0.1);
     color: var(--os-sky);
 }
 
 .os-badge-decline {
     background: rgba(183, 28, 28, 0.08);
-    color: #B71C1C;
+    color: var(--os-decline-red);
 }
 
 /* --- Post Feed — with excerpts and type badges --- */
@@ -531,7 +517,7 @@ body {
 
 .feed-length {
     font-size: 13px !important;
-    color: #aaa !important;
+    color: var(--os-light-muted) !important;
     white-space: nowrap;
 }
 
@@ -576,7 +562,7 @@ body {
 
 .os-cta-btn {
     background: var(--os-sand);
-    color: #fff;
+    color: var(--os-forest);
     border: none;
     padding: 12px 28px;
     border-radius: 6px;
@@ -591,9 +577,9 @@ body {
 }
 
 .os-cta-btn:hover {
-    background: #c8923a;
+    background: var(--os-sand-hover);
     box-shadow: 0 2px 8px rgba(221, 161, 94, 0.3);
-    color: #fff;
+    color: var(--os-forest);
 }
 
 .post-template .os-cta-banner,
@@ -623,10 +609,10 @@ body {
     font-weight: 500 !important;
     text-transform: none !important;
     font-size: 14px !important;
-    color: #666;
+    color: var(--os-muted-text);
     margin-bottom: 0;
     padding-bottom: 32px;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--os-border);
 }
 
 .single-meta-item + .single-meta-item::before {
@@ -757,39 +743,33 @@ body {
     width: 100%;
 }
 
+/* Post-scoped variables are in tokens.css (auto-generated). */
 .gh-content .os-post {
-    --bg: #fff;
-    --text: #1a1a1a;
-    --muted: #666;
-    --accent: #1B4332;
-    --accent-light: #2D6A4F;
-    --border: #e5e5e5;
-    --card-bg: #f8f9fa;
     width: 100%;
     max-width: none;
 }
 
 .gh-content .os-post .meta {
     color: var(--muted);
-    font-size: 0.75em;
+    font-size: 12px;
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
 }
 
 .gh-content .os-post .lede {
-    color: #333;
+    color: var(--os-dark-text);
     margin-bottom: 2rem;
 }
 
 .gh-content .os-post h2 {
-    font-size: 1.7em;
+    font-size: 27px;
     color: var(--accent);
     margin-top: 3rem;
 }
 
 .gh-content .os-post h3 {
-    font-size: 1.15em;
+    font-size: 18px;
     color: var(--accent);
     font-weight: 700;
 }
@@ -817,7 +797,7 @@ body {
 
 .gh-content .os-post thead th {
     background: var(--accent);
-    color: #fff;
+    color: var(--bg);
     padding: 0.75rem 1rem;
     text-align: left;
     font-weight: 600;
@@ -833,7 +813,7 @@ body {
 .gh-content .os-post tbody td {
     padding: 0.75rem 1rem;
     border: none;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--os-border-light);
     background: #fff;
     color: var(--text);
     transition: background 0.2s ease;
@@ -846,16 +826,16 @@ body {
 }
 
 .gh-content .os-post tbody tr:hover td {
-    background: #e8f5e9;
+    background: var(--os-highlight-green);
 }
 
 .gh-content .os-post tbody tr.highlight-row td {
-    background: #e8f5e9;
+    background: var(--os-highlight-green);
     font-weight: 600;
 }
 
 .gh-content .os-post tbody tr.highlight-row:hover td {
-    background: #d4edda;
+    background: var(--os-highlight-green-hover);
 }
 
 .gh-content .os-post tbody tr:last-child td {
@@ -905,7 +885,7 @@ body {
 .gh-content .os-post .chart-title {
     text-align: center;
     font-size: 13px;
-    color: #888;
+    color: var(--os-light-muted);
     margin-top: 12px;
     letter-spacing: 0.02em;
 }
@@ -935,24 +915,24 @@ body {
 }
 
 .gh-content .os-post .stat-card .number {
-    font-size: 3rem;
+    font-size: 30px;
     font-weight: 700;
     line-height: 1;
     white-space: nowrap;
-    color: #fff;
+    color: var(--bg);
 }
 
 .gh-content .os-post .stat-card .label {
     opacity: 0.9;
-    color: #fff;
+    color: var(--bg);
 }
 
 .gh-content .os-post .stat-card strong {
-    color: #fff;
+    color: var(--bg);
 }
 
 .gh-content .os-post .stat-card.stat-card-decline {
-    background: #B71C1C;
+    background: var(--os-decline-red);
 }
 
 /* --- Lists --- */
@@ -996,7 +976,7 @@ body {
 /* --- Footnote --- */
 
 .gh-content .os-post .footnote {
-    font-size: 0.75em;
+    font-size: 12px;
     color: var(--muted);
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -1029,7 +1009,7 @@ body {
 .gh-content .os-post .bar-val {
     font-size: 15px;
     font-weight: 600;
-    color: #222;
+    color: var(--os-dark-text);
     margin-bottom: 6px;
 }
 
@@ -1040,7 +1020,7 @@ body {
 
 .gh-content .os-post .bar-label {
     font-size: 13px;
-    color: #555;
+    color: var(--os-chart-label);
     margin-top: 10px;
     text-align: center;
     line-height: 1.3;
@@ -1117,10 +1097,10 @@ body {
     opacity: 1;
 }
 
-.gh-content .os-post .line-chart .legend-item { font-size: 13px; fill: #555; }
-.gh-content .os-post .line-chart .axis-label  { font-size: 11px; fill: #777; }
-.gh-content .os-post .line-chart .grid-line   { stroke: #e8e8e8; stroke-width: 1; }
-.gh-content .os-post .line-chart .axis-title  { font-size: 12px; fill: #555; }
+.gh-content .os-post .line-chart .legend-item { font-size: 13px; fill: var(--os-chart-label); }
+.gh-content .os-post .line-chart .axis-label  { font-size: 11px; fill: var(--os-light-muted); }
+.gh-content .os-post .line-chart .grid-line   { stroke: var(--os-grid); stroke-width: 1; }
+.gh-content .os-post .line-chart .axis-title  { font-size: 12px; fill: var(--os-chart-label); }
 
 /* Line animation: only when JS active */
 .os-animated .line-chart .line-path {
@@ -1172,13 +1152,13 @@ body {
     width: 120px;
     text-align: right;
     font-size: 13px;
-    color: #333;
+    color: var(--os-dark-text);
     flex-shrink: 0;
 }
 
 .gh-content .os-post .hbar-track {
     flex: 1;
-    background: #eee;
+    background: var(--os-border-light);
     border-radius: 4px;
     height: 24px;
     overflow: hidden;
@@ -1198,7 +1178,7 @@ body {
     width: 50px;
     font-size: 13px;
     font-weight: 700;
-    color: #333;
+    color: var(--os-dark-text);
     flex-shrink: 0;
 }
 
@@ -1206,7 +1186,7 @@ body {
 
 @media (max-width: 600px) {
     .gh-content .os-post .stat-card .number {
-        font-size: 2.2rem;
+        font-size: 22px;
     }
 
     .gh-content .os-post thead th {
@@ -1254,7 +1234,7 @@ body {
 }
 
 .os-cookie-text {
-    color: #f0f0f0;
+    color: var(--os-border-light);
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
@@ -1299,12 +1279,12 @@ body {
 }
 
 .os-cookie-btn-accept {
-    background: #1B4332;
+    background: var(--os-forest);
     color: #fff;
 }
 
 .os-cookie-btn-accept:hover {
-    background: #2D6A4F;
+    background: var(--os-forest-light);
     box-shadow: 0 2px 8px rgba(27, 67, 50, 0.3);
 }
 
@@ -1334,7 +1314,7 @@ body {
 }
 
 .os-pref-section {
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--os-border);
     border-radius: 10px;
     padding: 24px 28px;
     margin-bottom: 20px;
@@ -1370,17 +1350,17 @@ body {
 
 .os-pref-badge-on {
     background: rgba(27, 67, 50, 0.1);
-    color: #1B4332;
+    color: var(--os-forest);
 }
 
 .os-pref-badge-off {
     background: rgba(102, 102, 102, 0.1);
-    color: #666;
+    color: var(--os-muted-text);
 }
 
 .os-pref-section p {
     font-size: 14px;
-    color: #555;
+    color: var(--os-chart-label);
     line-height: 1.6;
     margin: 0 0 16px;
 }
@@ -1396,7 +1376,7 @@ body {
     gap: 16px;
     margin-top: 16px;
     padding-top: 16px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--os-border-light);
 }
 
 .os-pref-toggle-label {
@@ -1426,7 +1406,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #ccc;
+    background: var(--os-border);
     border-radius: 13px;
     cursor: pointer;
     transition: background 0.2s ease;
@@ -1446,7 +1426,7 @@ body {
 }
 
 .os-toggle input:checked + .os-toggle-track {
-    background: #1B4332;
+    background: var(--os-forest);
 }
 
 .os-toggle input:checked + .os-toggle-track::after {
@@ -1454,7 +1434,7 @@ body {
 }
 
 .os-toggle input:focus-visible + .os-toggle-track {
-    outline: 2px solid #457B9D;
+    outline: 2px solid var(--os-focus);
     outline-offset: 2px;
 }
 
@@ -1481,13 +1461,13 @@ body {
 
 .gh-content .os-pref-section a.os-pref-btn-primary,
 .os-pref-btn-primary {
-    background: #1B4332;
+    background: var(--os-forest);
     color: #fff;
 }
 
 .gh-content .os-pref-section a.os-pref-btn-primary:hover,
 .os-pref-btn-primary:hover {
-    background: #2D6A4F;
+    background: var(--os-forest-light);
     color: #fff;
     box-shadow: 0 2px 8px rgba(27, 67, 50, 0.3);
 }
@@ -1495,8 +1475,8 @@ body {
 .gh-content .os-pref-section a.os-pref-btn-outline,
 .os-pref-btn-outline {
     background: transparent;
-    color: #1B4332;
-    border: 1.5px solid #1B4332;
+    color: var(--os-forest);
+    border: 1.5px solid var(--os-forest);
 }
 
 .gh-content .os-pref-section a.os-pref-btn-outline:hover,
@@ -1506,19 +1486,19 @@ body {
 
 .os-pref-note {
     font-size: 12px;
-    color: #999;
+    color: var(--os-light-muted);
     margin-top: 10px;
     line-height: 1.5;
 }
 
 .os-pref-gpc-notice {
     background: rgba(27, 67, 50, 0.05);
-    border-left: 3px solid #1B4332;
+    border-left: 3px solid var(--os-forest);
     padding: 12px 16px;
     border-radius: 0 6px 6px 0;
     margin-top: 12px;
     font-size: 13px;
-    color: #555;
+    color: var(--os-chart-label);
     line-height: 1.5;
     display: none;
 }
@@ -1543,7 +1523,7 @@ body {
    Dark Mode Overrides
    -------------------------------------------------------------------------- */
 
-.theme-dark:root {
+html.theme-dark {
     --os-forest: #40916C;
     --os-sage: #74C69D;
     --os-sand: #E9C46A;
@@ -1637,7 +1617,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-    html:not(.theme-light):root {
+    html:not(.theme-light) {
         --os-forest: #40916C;
         --os-sage: #74C69D;
         --os-sand: #E9C46A;

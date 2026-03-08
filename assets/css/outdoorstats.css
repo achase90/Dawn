@@ -197,7 +197,7 @@ a {
 
 /* ==========================================================================
    Site Redesign — 2026 homepage + post layout
-   Implements approved design from option-final-clean.html + post-preview.html
+   All font-sizes in px to avoid Dawn's 62.5% root (1rem = 10px)
    ========================================================================== */
 
 /* --- Global Typography --- */
@@ -206,7 +206,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* --- Logo Mark (fallback when no logo image uploaded) --- */
+/* --- Logo Mark (fallback when no logo/icon uploaded) --- */
 
 .os-logo-mark {
     width: 32px;
@@ -240,7 +240,15 @@ body {
     align-items: center;
 }
 
-/* --- Header — Sand subscribe button --- */
+/* --- Header — nav layout + sand subscribe button --- */
+
+@media (min-width: 992px) {
+    .is-head-left-logo .gh-head-menu {
+        justify-content: flex-end;
+        margin-left: auto !important;
+        margin-right: 24px !important;
+    }
+}
 
 .gh-head-btn.gh-primary-btn {
     background: var(--os-sand) !important;
@@ -275,7 +283,7 @@ body {
 
 .os-hero-title {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: 700;
     color: var(--os-forest);
     line-height: 1.3;
@@ -284,14 +292,14 @@ body {
 }
 
 .os-hero-tagline {
-    font-size: 1.15rem;
+    font-size: 18px;
     color: var(--os-sage);
     line-height: 1.5;
     margin-bottom: 8px;
 }
 
 .os-hero-credibility {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: var(--os-sand);
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -308,7 +316,7 @@ body {
 }
 
 .os-section-header h3 {
-    font-size: 0.75rem;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--os-sage);
@@ -376,21 +384,21 @@ body {
 
 .os-card-title {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.15rem;
+    font-size: 18px;
     line-height: 1.3;
     margin-bottom: 8px;
     color: var(--os-charcoal);
 }
 
 .os-card-excerpt {
-    font-size: 0.82rem;
+    font-size: 13px;
     color: var(--os-sage);
     line-height: 1.5;
     margin: 0;
 }
 
 .os-card-meta {
-    font-size: 0.7rem;
+    font-size: 11px;
     color: #aaa;
     margin-top: 10px;
 }
@@ -404,7 +412,7 @@ body {
 }
 
 .os-card-cta {
-    font-size: 0.82rem;
+    font-size: 13px;
     font-weight: 600;
     color: var(--os-forest);
     background: rgba(27, 67, 50, 0.07);
@@ -419,7 +427,7 @@ body {
 
 .os-arrow {
     transition: transform 0.15s ease;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 /* --- Badge System --- */
@@ -440,17 +448,17 @@ body {
 
 .os-badge,
 .os-post-badge {
-    font-size: 0.65rem;
+    font-size: 10px;
 }
 
 .os-feed-type {
-    font-size: 0.6rem;
+    font-size: 10px;
     letter-spacing: 0.05em;
     white-space: nowrap;
 }
 
 .os-r-badge {
-    font-size: 0.55rem;
+    font-size: 9px;
     letter-spacing: 0.05em;
     padding: 2px 6px;
     width: fit-content;
@@ -511,14 +519,14 @@ body {
 }
 
 .feed-calendar-day {
-    font-size: 1.4rem;
+    font-size: 22px;
     font-weight: 700;
     color: var(--os-forest);
     line-height: 1.1;
 }
 
 .feed-calendar-month {
-    font-size: 0.7rem;
+    font-size: 11px;
     color: var(--os-sage);
     letter-spacing: 0.04em;
 }
@@ -528,7 +536,7 @@ body {
 }
 
 .feed-title {
-    font-size: 1.05rem !important;
+    font-size: 17px !important;
     font-weight: 600 !important;
     white-space: normal !important;
     text-overflow: clip !important;
@@ -540,7 +548,7 @@ body {
 }
 
 .os-feed-excerpt {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: var(--os-sage);
     line-height: 1.5;
     display: -webkit-box;
@@ -556,7 +564,7 @@ body {
 }
 
 .feed-length {
-    font-size: 0.78rem !important;
+    font-size: 13px !important;
     color: #aaa !important;
     white-space: nowrap;
 }
@@ -590,13 +598,13 @@ body {
 .os-cta-inner h3 {
     font-family: 'Source Serif 4', Georgia, serif;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 19px;
     margin: 0 0 6px;
 }
 
 .os-cta-inner p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    font-size: 14px;
     margin: 0;
 }
 
@@ -607,7 +615,7 @@ body {
     padding: 12px 28px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 16px;
     cursor: pointer;
     transition: background 0.15s ease, box-shadow 0.15s ease;
     text-decoration: none;
@@ -639,7 +647,7 @@ body {
 
 .single-title {
     font-family: 'Source Serif 4', Georgia, serif !important;
-    font-size: 2.4rem !important;
+    font-size: 38px !important;
     letter-spacing: -0.02em !important;
     color: var(--os-charcoal);
 }
@@ -647,7 +655,7 @@ body {
 .single-meta {
     font-weight: 500 !important;
     text-transform: none !important;
-    font-size: 0.85rem !important;
+    font-size: 14px !important;
     color: #666;
     margin-bottom: 0;
     padding-bottom: 32px;
@@ -673,7 +681,7 @@ body {
 }
 
 .os-related-label {
-    font-size: 0.75rem;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--os-sage);
@@ -708,7 +716,7 @@ body {
 }
 
 .os-related-card h4 {
-    font-size: 0.8rem;
+    font-size: 13px;
     line-height: 1.3;
     color: var(--os-charcoal);
     text-align: left;
@@ -718,7 +726,7 @@ body {
 /* --- Homepage layout adjustments --- */
 
 .home-template .site-content {
-    padding-top: 2rem;
+    padding-top: 20px;
 }
 
 .post-template .site-content,
@@ -734,7 +742,7 @@ body {
     }
 
     .os-hero-title {
-        font-size: 1.7rem;
+        font-size: 27px;
     }
 
     .os-cards-grid {
@@ -747,7 +755,7 @@ body {
     }
 
     .single-title {
-        font-size: 1.8rem !important;
+        font-size: 29px !important;
     }
 
     .os-related-grid {

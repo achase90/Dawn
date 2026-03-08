@@ -240,13 +240,17 @@ body {
     align-items: center;
 }
 
-/* --- Header — nav layout + sand subscribe button --- */
+/* --- Header — nav right-aligned, search hidden, sand subscribe button --- */
 
 @media (min-width: 992px) {
     .is-head-left-logo .gh-head-menu {
         justify-content: flex-end;
-        margin-left: auto !important;
+        margin-left: 0 !important;
         margin-right: 24px !important;
+    }
+
+    .gh-head-actions .gh-search {
+        display: none;
     }
 }
 

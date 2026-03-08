@@ -3,6 +3,7 @@ $(function () {
     featured();
     pagination(false);
     cookieConsent();
+    privacyPreferences();
 });
 
 function cookieConsent() {
@@ -69,6 +70,58 @@ function cookieConsent() {
         localStorage.removeItem(STORAGE_KEY);
         showBanner();
     });
+}
+
+function privacyPreferences() {
+    'use strict';
+
+    var STORAGE_KEY = 'os_cookie_consent';
+    var toggle = document.getElementById('os-pref-analytics-toggle');
+    if (!toggle) return;
+
+    var badge = document.getElementById('os-pref-analytics-badge');
+    var gpcNotice = document.getElementById('os-pref-gpc-notice');
+    var isGpc = !!(navigator.globalPrivacyControl);
+
+    function updateUI() {
+        var consent = localStorage.getItem(STORAGE_KEY);
+        var isOn = consent === 'accepted' && !isGpc;
+        toggle.checked = isOn;
+
+        if (badge) {
+            badge.textContent = isOn ? 'Enabled' : 'Disabled';
+            badge.className = 'os-pref-badge ' + (isOn ? 'os-pref-badge-on' : 'os-pref-badge-off');
+        }
+    }
+
+    if (isGpc && gpcNotice) {
+        gpcNotice.classList.add('visible');
+        toggle.disabled = true;
+        toggle.closest('.os-toggle').style.opacity = '0.5';
+        toggle.closest('.os-toggle').style.cursor = 'not-allowed';
+    }
+
+    toggle.addEventListener('change', function () {
+        if (isGpc) {
+            toggle.checked = false;
+            return;
+        }
+
+        if (toggle.checked) {
+            localStorage.setItem(STORAGE_KEY, 'accepted');
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', { 'analytics_storage': 'granted' });
+            }
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'rejected');
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', { 'analytics_storage': 'denied' });
+            }
+        }
+        updateUI();
+    });
+
+    updateUI();
 }
 
 function featured() {

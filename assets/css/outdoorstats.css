@@ -226,6 +226,15 @@ body {
     height: 20px;
 }
 
+.os-logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    margin-right: 8px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
 .gh-head-logo {
     display: flex;
     align-items: center;

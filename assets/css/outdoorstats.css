@@ -1182,19 +1182,73 @@ body {
     flex-shrink: 0;
 }
 
+/* --- Stat card — muted variant (mirrors .stat-card but grey background) --- */
+
+.gh-content .os-post .stat-card-muted {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #6C757D;
+    color: #fff;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.gh-content .os-post .stat-card-muted > div:first-child {
+    flex-shrink: 0;
+    min-width: 80px;
+}
+
+.gh-content .os-post .stat-card-muted .number {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--bg);
+}
+
+.gh-content .os-post .stat-card-muted .label {
+    opacity: 0.9;
+    color: var(--bg);
+}
+
+.gh-content .os-post .stat-card-muted strong {
+    color: var(--bg);
+}
+
 /* --- Post responsive --- */
 
 @media (max-width: 600px) {
-    .gh-content .os-post .stat-card .number {
-        font-size: 22px;
+    .gh-content .os-post .stat-card,
+    .gh-content .os-post .stat-card-muted {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gh-content .os-post .stat-card > div:first-child,
+    .gh-content .os-post .stat-card-muted > div:first-child {
+        min-width: auto;
+    }
+
+    .gh-content .os-post .stat-card .number,
+    .gh-content .os-post .stat-card-muted .number {
+        font-size: 28px;
+    }
+
+    .gh-content div.os-post table {
+        table-layout: auto;
     }
 
     .gh-content .os-post thead th {
         padding: 0.65rem 0.5rem;
+        font-size: 12px;
     }
 
     .gh-content .os-post tbody td {
         padding: 0.65rem 0.5rem;
+        font-size: 14px;
     }
 }
 

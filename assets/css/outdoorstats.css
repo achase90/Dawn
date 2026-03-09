@@ -1247,11 +1247,15 @@ body {
     .gh-content .os-post thead th {
         padding: 0.5rem 0.35rem !important;
         font-size: 11px !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
     }
 
     .gh-content .os-post tbody td {
         padding: 0.5rem 0.35rem !important;
         font-size: 13px !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
     }
 }
 

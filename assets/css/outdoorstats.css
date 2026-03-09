@@ -1239,16 +1239,19 @@ body {
 
     .gh-content div.os-post table {
         table-layout: auto;
+        word-wrap: normal;
+        word-break: normal;
+        overflow-wrap: normal;
     }
 
     .gh-content .os-post thead th {
-        padding: 0.65rem 0.5rem;
-        font-size: 12px;
+        padding: 0.5rem 0.35rem !important;
+        font-size: 11px !important;
     }
 
     .gh-content .os-post tbody td {
-        padding: 0.65rem 0.5rem;
-        font-size: 14px;
+        padding: 0.5rem 0.35rem !important;
+        font-size: 13px !important;
     }
 }
 

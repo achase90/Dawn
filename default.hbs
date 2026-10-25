@@ -14,16 +14,38 @@
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2. EEA/UK/CH: analytics off until the visitor accepts.
+    // Everywhere else: analytics on unless the browser sends GPC or DNT, or
+    // the visitor opted out. Ads storage is always denied (the site runs no ads).
+    // See outdoorstats-data/docs/ANALYTICS.md.
+    window.osConsent = (function () {
+      var choice = null;
+      try { choice = localStorage.getItem('os_cookie_consent'); } catch (e) {}
+      var signal = navigator.globalPrivacyControl === true ||
+        navigator.doNotTrack === '1' || window.doNotTrack === '1';
+      var tz = '';
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+      return {
+        key: 'os_cookie_consent',
+        choice: choice,
+        signal: signal,
+        likelyEEA: /^Europe\//.test(tz) || /^Atlantic\/(Reykjavik|Canary|Madeira|Azores|Faroe)$/.test(tz)
+      };
+    })();
     gtag('consent', 'default', {
-      'analytics_storage': 'denied',
+      'analytics_storage': (osConsent.choice === 'accepted' && !osConsent.signal) ? 'granted' : 'denied',
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'wait_for_update': 500
+      'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH']
     });
-    if (navigator.globalPrivacyControl) {
-      localStorage.setItem('os_cookie_consent', 'rejected');
-    }
+    gtag('consent', 'default', {
+      'analytics_storage': (osConsent.choice === 'rejected' || osConsent.signal) ? 'denied' : 'granted',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+    gtag('set', 'ads_data_redaction', true);
     </script>
 
     {{ghost_head}}

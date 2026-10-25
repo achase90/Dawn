@@ -6,25 +6,33 @@ $(function () {
     privacyPreferences();
 });
 
+// Consent state is read in default.hbs (window.osConsent) before gtag loads.
+function consentState() {
+    'use strict';
+    var c = window.osConsent || {key: 'os_cookie_consent', choice: null, signal: false, likelyEEA: false};
+    try { c.choice = localStorage.getItem(c.key); } catch (e) {}
+    c.analyticsOn = !c.signal && (c.choice === 'accepted' || (c.choice !== 'rejected' && !c.likelyEEA));
+    return c;
+}
+
+function setAnalyticsConsent(granted, sendPageView) {
+    'use strict';
+    var c = consentState();
+    try { localStorage.setItem(c.key, granted ? 'accepted' : 'rejected'); } catch (e) {}
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', { 'analytics_storage': granted ? 'granted' : 'denied' });
+    // The landing page_view went out before consent; count it now.
+    if (granted && sendPageView) gtag('event', 'page_view');
+}
+
 function cookieConsent() {
     'use strict';
 
-    var STORAGE_KEY = 'os_cookie_consent';
     var banner = document.getElementById('os-cookie-banner');
     if (!banner) return;
 
     var acceptBtn = document.getElementById('os-cookie-accept');
     var declineBtn = document.getElementById('os-cookie-decline');
-
-    function gpcActive() {
-        return !!(navigator.globalPrivacyControl);
-    }
-
-    function grantAnalytics() {
-        if (typeof gtag === 'function') {
-            gtag('consent', 'update', { 'analytics_storage': 'granted' });
-        }
-    }
 
     function showBanner() {
         banner.setAttribute('aria-hidden', 'false');
@@ -34,58 +42,44 @@ function cookieConsent() {
         banner.setAttribute('aria-hidden', 'true');
     }
 
-    function accept() {
-        localStorage.setItem(STORAGE_KEY, 'accepted');
-        grantAnalytics();
+    if (acceptBtn) acceptBtn.addEventListener('click', function () {
+        var wasOn = consentState().analyticsOn;
+        setAnalyticsConsent(true, !wasOn);
         hideBanner();
-    }
-
-    function decline() {
-        localStorage.setItem(STORAGE_KEY, 'rejected');
+    });
+    if (declineBtn) declineBtn.addEventListener('click', function () {
+        setAnalyticsConsent(false);
         hideBanner();
-    }
-
-    if (gpcActive()) {
-        localStorage.setItem(STORAGE_KEY, 'rejected');
-        hideBanner();
-        return;
-    }
-
-    var consent = localStorage.getItem(STORAGE_KEY);
-
-    if (consent === 'accepted') {
-        grantAnalytics();
-        hideBanner();
-    } else if (consent === 'rejected') {
-        hideBanner();
-    } else {
-        showBanner();
-    }
-
-    if (acceptBtn) acceptBtn.addEventListener('click', accept);
-    if (declineBtn) declineBtn.addEventListener('click', decline);
+    });
 
     $(document).on('click', 'a[href="#cookie-settings"]', function (e) {
         e.preventDefault();
-        localStorage.removeItem(STORAGE_KEY);
         showBanner();
     });
+
+    // The banner asks only visitors who are likely in the EEA/UK/CH (opt-in
+    // regions) and have not chosen yet. Everyone else is opt-out via
+    // /preferences/, GPC or DNT.
+    var c = consentState();
+    if (c.likelyEEA && !c.signal && !c.choice) {
+        showBanner();
+    } else {
+        hideBanner();
+    }
 }
 
 function privacyPreferences() {
     'use strict';
 
-    var STORAGE_KEY = 'os_cookie_consent';
     var toggle = document.getElementById('os-pref-analytics-toggle');
     if (!toggle) return;
 
     var badge = document.getElementById('os-pref-analytics-badge');
     var gpcNotice = document.getElementById('os-pref-gpc-notice');
-    var isGpc = !!(navigator.globalPrivacyControl);
+    var isSignal = consentState().signal;
 
     function updateUI() {
-        var consent = localStorage.getItem(STORAGE_KEY);
-        var isOn = consent === 'accepted' && !isGpc;
+        var isOn = consentState().analyticsOn;
         toggle.checked = isOn;
 
         if (badge) {
@@ -94,7 +88,7 @@ function privacyPreferences() {
         }
     }
 
-    if (isGpc && gpcNotice) {
+    if (isSignal && gpcNotice) {
         gpcNotice.classList.add('visible');
         toggle.disabled = true;
         toggle.closest('.os-toggle').style.opacity = '0.5';
@@ -102,22 +96,11 @@ function privacyPreferences() {
     }
 
     toggle.addEventListener('change', function () {
-        if (isGpc) {
+        if (isSignal) {
             toggle.checked = false;
             return;
         }
-
-        if (toggle.checked) {
-            localStorage.setItem(STORAGE_KEY, 'accepted');
-            if (typeof gtag === 'function') {
-                gtag('consent', 'update', { 'analytics_storage': 'granted' });
-            }
-        } else {
-            localStorage.setItem(STORAGE_KEY, 'rejected');
-            if (typeof gtag === 'function') {
-                gtag('consent', 'update', { 'analytics_storage': 'denied' });
-            }
-        }
+        setAnalyticsConsent(toggle.checked, false);
         updateUI();
     });
 

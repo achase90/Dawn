@@ -1234,7 +1234,7 @@ body {
 
     .gh-content .os-post .stat-card .number,
     .gh-content .os-post .stat-card-muted .number {
-        font-size: 28px;
+        font-size: 27px; /* display_sm */
     }
 
     .gh-content div.os-post table {

@@ -13,6 +13,22 @@
                 <div class="tag-description">{{description}}</div>
             {{/if}}
 
+            {{!-- Fishing is a section with sub-sections; list the ones that have published posts --}}
+            {{#match slug "=" "fishing"}}
+                {{#get "tags" filter="slug:[fly-patterns,fly-tying,trout]" include="count.posts" order="name asc" limit="10"}}
+                    <div class="tag-list">
+                        <span class="tag-list-label">Sections:</span>
+                        {{#foreach tags}}{{#if count.posts}}<a class="tag-list-item" href="{{url}}">{{name}}</a>{{/if}}{{/foreach}}
+                    </div>
+                {{/get}}
+            {{/match}}
+            {{#match slug "=" "fly-patterns"}}
+                <div class="tag-list">
+                    <span class="tag-list-label">Part of</span>
+                    <a class="tag-list-item" href="{{@site.url}}/tag/fishing/">fishing</a>
+                </div>
+            {{/match}}
+
             {{#if feature_image}}
                 <div class="tag-media u-placeholder horizontal kg-width-wide">
                     <img class="u-object-fit" srcset="{{> srcset}}" src="{{img_url feature_image size="l"}}" alt="{{name}}">
